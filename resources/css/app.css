@@ -1,0 +1,49 @@
+h1 {
+    font-family: Okra, Helvetica, sans-serif;
+}
+
+#navAndBrand {
+    background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
+    /* opacity: ; */
+    z-index: -10;
+}
+
+#nav {
+    padding: 2% 7%;
+}
+#list li a {
+    font-size: 20px;
+    color: #fff;
+}
+
+#list button {
+    color:#fff;
+    margin-left: 10px;
+}
+
+#main {
+    padding-bottom: 3%;
+}
+
+#main h1 {
+    margin: 3% 0%;
+    color: #fff;
+    text-align: center;
+}
+
+#main img {
+    display: block;
+    margin: auto;
+    width: 20%;
+}
+
+#searchBar {
+    margin: 0% 18%;
+}
+
+#searchBar input {
+    border-radius: 10px;
+    padding: 1.5% 0%;
+    font-size: 20px;
+}
+
