@@ -22,7 +22,7 @@ h1 {
 }
 
 #main {
-    padding-bottom: 3%;
+    padding-bottom: 7%;
 }
 
 #main h1 {
@@ -47,4 +47,47 @@ h1 {
     font-size: 20px;
 }
 
+/* cards */
+.row {
+    margin-top: 5%;
+    padding: 2% 7%;
+}
 
+.card img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.card:hover {
+    transition: opacity 0.25s ease 0s, transform 0.25s ease 0s;
+    transform: scale(1.02);
+ }
+
+@media (max-width: 650px) {
+    #main img {
+        width: 30%;
+    }
+
+    #searchBar {
+        text-align: center;
+        margin-left: 7%;
+        width: 100%;
+    }
+
+    .row {
+        align-items: center;
+    }
+
+    .row .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: scale(0.9);
+        margin: 5% 0%;
+        align-items: center;
+    }
+}
