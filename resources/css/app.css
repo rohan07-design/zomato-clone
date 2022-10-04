@@ -1,3 +1,7 @@
+body {
+    box-sizing: border-box;
+    overflow-x: none;
+}
 h1 {
     font-family: Okra, Helvetica, sans-serif;
 }
@@ -69,32 +73,51 @@ h1 {
 
 #collections {
     padding: 0% 7%;
+    margin-bottom: 5%;
 }
 
 #collections p {
     font-size: 20px;
 }
 
+#collections .card {
+    margin-top: 3%;
+    border-radius: 5%;
+}
+
+#collections .card img {
+    height: 20rem;
+    border-radius: 5%;
+}
+
 @media (max-width: 650px) {
+    #main {
+        text-align: center;
+    }
+
     #main img {
         width: 30%;
+    }
+
+    #main h1 {
+        font-size: 12px;
     }
 
     #searchBar {
         text-align: center;
         margin-left: 7%;
-        width: 100%;
+        width: 100%
     }
 
-    .row {
-        align-items: center;
-    }
-
-    .row .card {
+    #cards1 .row {
         display: flex;
         justify-content: center;
         align-items: center;
-        transform: scale(0.9);
+    }
+
+    #cards1 .row .card {
+        align-items: center;
+        transform: scale(0.8);
         margin: 5% 0%;
         align-items: center;
     }
