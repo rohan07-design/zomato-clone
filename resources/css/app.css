@@ -90,6 +90,66 @@ h1 {
     border-radius: 5%;
 }
 
+/* Features */
+#features {
+    background-color: rgb(255, 251, 247);
+    padding:  2% 7%;
+    text-align: center;
+}
+
+#features .row h3{
+    color: #000;
+}
+
+#features i {
+    color:  rgb(253, 48, 68);
+    margin-bottom: 20px;
+}
+
+#features p {
+    color:rgb(54, 54, 54);
+}
+
+#contact {
+    margin: 3% 20%;
+}
+
+#contact .mob {
+    width: 16rem;
+    height: 20rem;
+}
+
+#contact button {
+    background-color: rgb(224, 53, 70);
+    border-color: rgb(224, 53, 70);
+}
+
+#footer {
+    padding: 3% 7%;
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    background-color: rgb(228, 228, 228);
+}
+
+#footer h4, p {
+    font-size: 1rem;
+}
+
+#footer p {
+    color: rgb(105, 105, 105);
+}
+
+#footer img {
+    margin-left: 8%;
+}
+
+#footer .row {
+    display: flex;
+    float: none;
+    justify-content: center;
+}
+
+
 @media (max-width: 650px) {
     #main {
         text-align: center;
