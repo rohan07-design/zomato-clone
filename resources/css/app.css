@@ -110,6 +110,8 @@ h1 {
     color:rgb(54, 54, 54);
 }
 
+/* contacts */
+
 #contact {
     margin: 3% 20%;
 }
@@ -123,6 +125,8 @@ h1 {
     background-color: rgb(224, 53, 70);
     border-color: rgb(224, 53, 70);
 }
+
+/* footer */
 
 #footer {
     padding: 3% 7%;
@@ -147,6 +151,45 @@ h1 {
     display: flex;
     float: none;
     justify-content: center;
+}
+
+/* layouts */
+#header,
+#lists {
+    padding: 2% 5%;
+}
+
+#header img {
+    width: 10%;
+}
+
+#header #navbarSupportedContent {
+    margin: 0% 5%;
+}
+
+#header #searched {
+    width: 40rem;
+    height: 3.5rem;
+    border: 1px solid rgba(149, 157, 165, 0.2);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+
+#lists li {
+    list-style: none;
+    display: inline-block;
+    margin: 0% 2%;
+}
+
+#lists li p {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: rgb(105, 105, 105);
+}
+
+#lists li p::selection {
+    color: rgb(239, 79, 95);
 }
 
 
