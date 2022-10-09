@@ -223,7 +223,6 @@ p {
     height: 2px;
     bottom: 0px;
     left: 0;
-    background-color: #0087ca;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
 }
@@ -231,7 +230,6 @@ p {
 #lists li p:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
-    padding-bottom: 4px;
 }
 
 #list li p:hover {
@@ -279,7 +277,32 @@ p {
     padding: 3% 7%;
 }
 
+/* orderOnline page */
+#randomFood {
+    padding: 2% 7%;
+    text-align: start;
+}
 
+#randomFood img {
+    width: 20rem;
+    height: 15rem;
+    border-radius: 3%;
+}
+
+#randomFood .card {
+    margin-top: 3%;
+    border: none;
+}
+
+#randomFood .card-title {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#randomFood h2 {
+    margin-bottom: 3%;
+}
 
 
 
