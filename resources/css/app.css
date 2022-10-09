@@ -123,7 +123,8 @@ h1 {
     height: 20rem;
 }
 
-#contact button {
+#contact button,
+#emptyCart button {
     background-color: rgb(224, 53, 70);
     border-color: rgb(224, 53, 70);
 }
@@ -177,6 +178,40 @@ p {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     font-size: 18px;
     border-radius: 10px;
+}
+
+#cart {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+    margin-top: auto;
+}
+
+/*cart*/
+#emptyCart {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#emptyCart img {
+    margin-top: 10%;
+    width: 20rem;
+    height: 20rem;
+}
+
+#emptyCart p {
+    padding-top: 5%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#emptyCart button {
+    font-size: 20px;
+    color: #fff;
 }
 
 /* list */
