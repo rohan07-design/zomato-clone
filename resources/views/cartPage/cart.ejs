@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <style>
+    #header {
+        background-image: url("https://b.zmtcdn.com/web_assets/81f3ff974d82520780078ba1cfbd453a1583259680.png");
+        /* opacity: ; */
+        z-index: -10;
+    }
 
     #header li {
         list-style: none;
@@ -24,25 +29,39 @@
         width: 10%;
     }
 
+    #header li p,
+    #header li p:hover {
+        color :#fff;
+        cursor: pointer;
+    }
+
     p {
         font-size: 1.3rem;
+        color: rgb(224, 53, 70);
     }
 </style>
 
 <section id="header">
     <nav class="navbar navbar-expand-lg navbar-light mb-3">
         <div class="container-fluid" id="cartHeading">
-          <img src="/img/zomatoLogo.avif">
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item mt-3">
-                <p class="nav-link active" aria-current="page" href="#">Cart <i class="fas fa-cart-plus"></i></p>
-              </li>
-            </ul>
-        </div>
-      </nav>
+            <img src="https://b.zmtcdn.com/web_assets/8313a97515fcb0447d2d77c276532a511583262271.png">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mt-3">
+                        <p class="nav-link active" aria-current="page" href="#">Cart <i class="fas fa-cart-plus"></i>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+    </nav>
 </section>
-<section id="emptyCart">
+<div id="cartWithItems">
+    <div class="head">
+        <p style="font-size:1.8rem;"><i class="fas fa-cart-arrow-down"></i> Order Summary</p>
+    </div>
+    <hr>
+</div>
+<!-- <section id="emptyCart">
     <div id="cartImage">
         <img src="/img/cart.avif" alt="cartImage">
     </div>
@@ -50,4 +69,4 @@
         <p>Nothing in your Cart yet.</p>
     </div>
     <button class="btn"><i class="fas fa-chevron-left"></i> Go Back</button>
-</section>
+</section> -->
