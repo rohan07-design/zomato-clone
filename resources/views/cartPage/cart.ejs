@@ -31,7 +31,7 @@
 
     #header li p,
     #header li p:hover {
-        color :#fff;
+        color: #fff;
         cursor: pointer;
     }
 
@@ -60,7 +60,61 @@
         <p style="font-size:1.8rem;"><i class="fas fa-cart-arrow-down"></i> Order Summary</p>
     </div>
     <hr>
-</div>
+    <div class="food-list">
+        <!-- <div class="addedFoods">
+            <img src="/img/online/cake.avif" style="width:8rem;height:8rem; border-radius:50%;">
+        </div> -->
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Food Name</th>
+                <th scope="col">Food Type</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>1pcs</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <div class="d-flex justify-content-end">
+                <span class="pe-3">Total Amount</span>
+                <span>300</span>
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+                <form action="">
+                    <div class="col-auto">
+                        <input type="number" class="form-control mb-3" placeholder="Phone Number">
+                        <input type="text" class="form-control" placeholder="Address">
+                    </div>
+                    <!-- <div>
+                        <button class="btn mt-3" style="color:#fff;"><i class="fas fa-rupee-sign"></i> Order Now</button>
+                    </div> -->
+                </form>
+            </div>
+            <a href="/login" class="d-flex justify-content-end" 
+            style="text-decoration: none;"><button class="btn" style="color:#fff;"><i class="fas fa-sign-in-alt"></i> Login to Continue</button></a>
+          </div>
+    </div>
 <!-- <section id="emptyCart">
     <div id="cartImage">
         <img src="/img/cart.avif" alt="cartImage">

@@ -15,6 +15,13 @@ app.get("/cart",(req,res) => {
     res.render("cartPage/cart.ejs")
 })
 
+app.get("/login",(req,res) => {
+    res.render("auth/login.ejs")
+})  
+
+app.get("/register",(req,res) => {
+    res.render("auth/register.ejs")
+})
 //setting the template engine
 app.use(expressLayout)
 app.set("views", path.join(__dirname,"/resources/views"))

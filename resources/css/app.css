@@ -59,6 +59,11 @@ h1 {
     padding: 2% 7%;
 }
 
+#cards1 .row a {
+    text-decoration: none;
+    color: #000;
+}
+
 #cards1 .card img {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -124,7 +129,9 @@ h1 {
 }
 
 #contact button,
-#emptyCart button {
+#emptyCart button,
+.food-list button,
+#login button {
     background-color: rgb(224, 53, 70);
     border-color: rgb(224, 53, 70);
 }
@@ -212,6 +219,10 @@ p {
 #emptyCart button {
     font-size: 20px;
     color: #fff;
+}
+
+#cartWithItems {
+    padding: 5% 10%;
 }
 
 /* list */
@@ -362,6 +373,25 @@ p {
     height: 8rem;
 }
 
+/* login */
+#login {
+    background-color: #fff;
+    margin: 8% 20%;
+    border-radius: 4%;
+    position: absolute;
+    left: auto;
+    width: 30%;
+}
+
+.forms {
+    margin: 5% 10%;   
+}
+
+.forms a {
+    color :rgb(239, 79, 95);
+    text-decoration: none;
+    font-size: 18px;
+}
 
 
 @media (max-width: 650px) {
