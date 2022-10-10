@@ -7,21 +7,8 @@ const PORT = process.env.PORT || 3000
 //load assest
 app.use(express.static('public'));
 
-app.get("/",(req,res) => {
-    res.render("home.ejs")
-})
+require("./routes/web")(app)
 
-app.get("/cart",(req,res) => {
-    res.render("cartPage/cart.ejs")
-})
-
-app.get("/login",(req,res) => {
-    res.render("auth/login.ejs")
-})  
-
-app.get("/register",(req,res) => {
-    res.render("auth/register.ejs")
-})
 //setting the template engine
 app.use(expressLayout)
 app.set("views", path.join(__dirname,"/resources/views"))
