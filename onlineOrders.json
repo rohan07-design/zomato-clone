@@ -1,0 +1,79 @@
+[{
+    "foodname": "Belgium Chocolate Cake",
+    "foodtype": "Bakery, Desserts",
+    "price": "400",
+    "image": "cake.avif"
+},
+{
+    "foodname": "Chicken Bomber Big Rush Burger",
+    "foodtype": "Burger, Fast Food, Desserts",
+    "price":"100",
+    "image":"burder.avif"
+},
+{
+    "foodname": "Vaishali Special Masala Dosa",
+    "foodtype": "South Indian, Street Food",
+    "price":"150",
+    "image":"dosa.avif"
+},
+{
+    "foodname": "Brew Culture Frappe",
+    "foodtype": "Beverages ",
+    "price":"160.95",
+    "image":"coffee.avif"
+},
+{
+    "foodname": "Veg Heaven Pizza",
+    "foodtype": "pizza, Fast food",
+    "price":"100",
+    "image":"pizza.avif"
+},
+{
+    "foodname": "Butter Chicken Boneless",
+    "foodtype": "Biryani, North Indian",
+    "price":"350",
+    "image":"chicken.avif"  
+},
+{
+    "foodname": "Bun Maska",
+    "foodtype": "Iranian, Fast Food",
+    "price":"55",
+    "image":"irani.avif"  
+},
+{
+    "foodname": "Jogeshwari Misal",
+    "foodtype": "street food",
+    "price":"100",
+    "image":"misal.avif" 
+},
+{
+    "foodname": "Kaju Paneer Butter Masala",
+    "foodtype": "North Indian, Street food",
+    "price":"250",
+    "image":"paneer.avif" 
+},
+{
+    "foodname": "Cheesy Cheese Parantha",
+    "foodtype": "North Indian",
+    "price":"150",
+    "image":"paratha.avif" 
+},
+{
+    "foodname": "MH 12 Pav Bhaji",
+    "foodtype": "street food",
+    "price":"160",
+    "image":"pavbhaji.avif" 
+},
+{
+    "foodname": "Garden Vada Pav Centre",
+    "foodtype": "street food",
+    "price":"20",
+    "image":"vadapav.avif" 
+},
+{
+    "foodname": "Butter Chicken Boneless",
+    "foodtype": "Biryani, North Indian",
+    "price":"350",
+    "image":"chicken.avif" 
+}
+]

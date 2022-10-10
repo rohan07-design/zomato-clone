@@ -1,6 +1,7 @@
 const homeController = require("../app/http/controllers/homeController")
 const authController = require("../app/http/controllers/authController")
 const cartController = require("../app/http/controllers/customer/cartController")
+const orderOnlineController = require("../app/http/controllers/orderOnlineController")
 
 function nonLayoutRoutes(app) {
     app.get("/", homeController().index)
@@ -10,6 +11,7 @@ function nonLayoutRoutes(app) {
     app.get("/login", authController().login)
 
     app.get("/register", authController().register)
+
 }
 
 module.exports = nonLayoutRoutes
