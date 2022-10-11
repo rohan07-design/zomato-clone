@@ -1,17 +1,20 @@
 <section id="randomFood">
     <h2>Delivery Restaurants in Pune</h2>
     <div class="row">
-        <div class="col-lg-4 col-md-6">
-            <div class="card" style="width: 20rem;">
-                <img src="/img/online/cake.avif" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Belgium Chocolate Cake</h5>
-                    <p class="card-text">Bakery, Desserts</p>
-                    <a href="#" class="btn btn-primary">Add to Cart <i class="fas fa-cart-plus"></i></a>
+        <%foodProducts.forEach(function(e) { %>
+            <div class="col-lg-4 col-md-6">
+                <div class="card" style="width: 20rem;">
+                    <img src="/img/online/<%= e.image %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= e.foodname %></h5>
+                        <p class="card-text"><%= e.foodtype %>&nbsp;&nbsp;&nbsp; ₹<%= e.price %></p>
+                        <a href="#" class="btn btn-primary">Add to Cart <i class="fas fa-cart-plus"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6">
+        <%})%>
+        
+        <!-- <div class="col-lg-4 col-md-6">
             <div class="card" style="width: 20rem;">
                 <img src="/img/online/burger.avif" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -120,7 +123,7 @@
                     <a href="#" class="btn btn-primary">Add to Cart <i class="fas fa-cart-plus"></i></a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <section id="end">

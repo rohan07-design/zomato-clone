@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000
 const mongoose = require('mongoose');
 
 //connection to the database
-const url = "mongodb://localhost:27017/zomato"
+const url = "mongodb://localhost/zomato"
 mongoose.connect(url)
 const connection = mongoose.connection;
 connection.once('open', () => {
@@ -29,7 +29,6 @@ app.set("view engine","ejs");
 const OnlineOrder = require("./app/models/onlineOrder")
 app.get("/orderOnline",(req,res) => {
     OnlineOrder.find().then(function(foodproducts) {
-        console.log(foodproducts)
         return res.render("orderOnline/orderOnline.ejs",
         {
             foodProducts:foodproducts
