@@ -1,9 +1,13 @@
+require("dotenv").config()
 const express = require('express');
 const app = express();
 const expressLayout = require('express-ejs-layouts');
 const path = require('path');
 const PORT = process.env.PORT || 3000
 const mongoose = require('mongoose');
+const session = require("express-session");
+const flash = require('flash');
+const MongoDbStore = require('connect-mongo')(session);
 
 //connection to the database
 const url = "mongodb://localhost/zomato"
@@ -14,6 +18,23 @@ connection.once('open', () => {
 }).on('error',(err) => {
     console.log("Connection failed..!!")
 })
+
+//session store
+let sessionStored = new MongoDbStore({
+    mongooseConnection: connection,
+    collection: 'sessions'
+})
+
+//session config
+app.use(session({
+    secret:process.env.COOKIE_SECRET,
+    resave:false,
+    store: sessionStored,
+    saveUninitialized: false,
+    cookie: {maxAge: 1000*60*60*24} //24hrs
+}))
+
+app.use(flash())
 //load assest
 app.use(express.static('public'));
 
