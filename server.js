@@ -28,7 +28,7 @@ let sessionStored = new MongoDbStore({
 //session config
 app.use(session({
     secret:process.env.COOKIE_SECRET,
-    resave:false,
+    resave:true,
     store: sessionStored,
     saveUninitialized: false,
     cookie: {maxAge: 1000*60*60*24} //24hrs
@@ -37,6 +37,11 @@ app.use(session({
 app.use(flash())
 //load assest
 app.use(express.static('public'));
+app.use(express.json())
+app.use((req,res,next) => {
+    res.locals.session = req.session
+    next()
+})
 
 require("./routes/web")(app)
 

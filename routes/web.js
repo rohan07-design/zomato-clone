@@ -12,6 +12,8 @@ function nonLayoutRoutes(app) {
 
     app.get("/register", authController().register)
 
+    app.post("/update-cart", cartController().update)
+
 }
 
 module.exports = nonLayoutRoutes

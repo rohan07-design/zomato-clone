@@ -8,7 +8,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><%= e.foodname %></h5>
                         <p class="card-text"><%= e.foodtype %>&nbsp;&nbsp;&nbsp; ₹<%= e.price %></p>
-                        <a href="#" class="btn btn-primary">Add to Cart <i class="fas fa-cart-plus"></i></a>
+                        <a data-food="<%= JSON.stringify(e) %>" class="btn btn-primary" id="addToCart">Add to Cart <i class="fas fa-cart-plus"></i></a>
                     </div>
                 </div>
             </div>

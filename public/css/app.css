@@ -194,6 +194,15 @@ p {
     margin-top: auto;
 }
 
+#cartUpdateNumber {
+    background-color: #000;
+    color: #fff; 
+    padding: 0px 7px; 
+    border-radius: 100%; 
+    position: absolute;
+    top: 0;
+}
+
 /*cart*/
 #emptyCart {
     position: absolute;

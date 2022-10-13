@@ -14,6 +14,11 @@
 
     <!-- Public folder css-->
     <link rel="stylesheet" href="/css/app.css">
+
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <title>Document</title>
 </head>
 
@@ -31,7 +36,9 @@
                     <input class="form-control me-2" id="searched" type="search" placeholder="&#xf002; Search for restaurant,cuisine or a dish" aria-label="Search">
                 </form>
             </div>
-            <p class="me-auto" id="cart"><a href="/cart" style="text-decoration:none; color:#000;">Cart</a> <i class="fas fa-cart-plus"></i></p>
+            <p class="me-auto" id="cart"><a href="/cart" style="text-decoration:none; color:#000;">Cart</a> <i class="fas fa-cart-plus"></i>
+                <span id="cartUpdateNumber"><%= session.cart.totalQty %></span>
+            </p>
         </div>
     </nav>
 </section>
