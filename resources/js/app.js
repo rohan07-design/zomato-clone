@@ -8,6 +8,8 @@ function updateCart(food) {
     axios.post('/update-cart',food).then(res => {
         toastr.success('Items are added succesfully to cart..!!')
         cartCounter.innerText = res.data.totalQty
+    }).catch(err => {
+        toastr.success('Items are added succesfully to cart..!!')
     })
 }
 

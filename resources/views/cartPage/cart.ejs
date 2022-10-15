@@ -49,9 +49,6 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item mt-3">
                         <p class="nav-link active" aria-current="page" href="#">Cart <i class="fas fa-cart-plus"></i>
-                            <span id="cartUpdateNumber" style="background-color:#fff;color:#000;">
-                                <%= session.cart.totalQty %>
-                            </span>
                         </p>
                     </li>
                 </ul>
@@ -125,7 +122,7 @@
                 <div id="desc-cart">
                     <p>Nothing in your Cart yet.</p>
                 </div>
-                <button class="btn"><i class="fas fa-chevron-left"></i> Go Back</button>
+                <a href="/orderOnline"><button class="btn"><i class="fas fa-chevron-left"></i> Go Back</button></a>
             </section>
         <%}%>
 </div>

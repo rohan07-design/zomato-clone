@@ -28,7 +28,7 @@ let sessionStored = new MongoDbStore({
 //session config
 app.use(session({
     secret:process.env.COOKIE_SECRET,
-    resave:true,
+    resave:false,
     store: sessionStored,
     saveUninitialized: false,
     cookie: {maxAge: 1000*60*60*24} //24hrs
