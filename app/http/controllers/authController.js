@@ -10,19 +10,20 @@ function authController() {
         },
         postLogin(req,res,next) {
             passport.authenticate('local',(err,user,info) => {
+                console.log(err)
                 if(err) {
-                    req.flash('error',info.message)
+                    req.flash("error1",info.message)
                     return next(err)
                 }
 
                 if(!user) {
-                    req.flash('error',info.message)
+                    req.flash("error1",info.message)
                     return res.redirect('/login')
                 }
 
                 req.logIn(user,(err) => {
                     if(err) {
-                        req.flash('error',info.message)
+                        req.flash("error1",info.message)
                         return next(err)
                     }
 
