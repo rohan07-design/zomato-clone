@@ -10,7 +10,11 @@ function nonLayoutRoutes(app) {
 
     app.get("/login", authController().login)
 
+    app.post("/login", authController().postLogin)
+
     app.get("/register", authController().register)
+
+    app.post("/register",authController().postRegister)
 
     app.post("/update-cart", cartController().update)
 

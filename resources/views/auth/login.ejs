@@ -28,19 +28,29 @@
     <div id="login">
         <div class="forms">
             <h2>Sign In</h2>
-            <form action="">
-                <div class="mb-3 mt-3">
-                  <label for="exampleInputEmail1" class="form-label"><i class="fas fa-user"></i> Username</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label"><i class="fas fa-unlock-alt"></i> Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="row g-1 align-items-center">
-                    <button type="submit" class="btn btn-primary mt- col-auto">LogIn <i class="fas fa-sign-in-alt"></i></button>
-                    <a href="/register" class="col-auto ms-4">Don't Have Account?</a>
-                </div>
+            <form action="/login" method="POST">
+                <%if(messages.error) {%>
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <%=messages.error%>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <%}%>
+                        <div class="mb-3 mt-3">
+                            <label for="exampleInputEmail1" class="form-label"><i class="fas fa-user"></i>
+                                Username</label>
+                            <input type="text" name="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label"><i class="fas fa-unlock-alt"></i>
+                                Password</label>
+                            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="row g-1 align-items-center">
+                            <button type="submit" class="btn btn-primary mt- col-auto">LogIn <i
+                                    class="fas fa-sign-in-alt"></i></button>
+                            <a href="/register" class="col-auto ms-4">Don't Have Account?</a>
+                        </div>
             </form>
         </div>
         <p class="text-center mt-3">&copy; 2022 Zomato. All rights reserved</p>
