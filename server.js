@@ -44,14 +44,18 @@ passportInit(passport)
 app.use(passport.initialize())
 app.use(passport.session())
 
+
 app.use(flash())
 app.use(toastr())
 //load assest
 app.use(express.static('public'));
 app.use(express.json())
 app.use(express.urlencoded({extend:false}))
+
+//global middleware
 app.use((req,res,next) => {
     res.locals.session = req.session
+    res.locals.user = req.user
     next()
 })
 

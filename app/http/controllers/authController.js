@@ -8,9 +8,19 @@ function authController() {
         login(req, res) {
             res.render("auth/login.ejs")
         },
+        logout(req,res) {
+            req.logout((err) => {
+                if(err) {
+                    return next(err)
+                }
+            })
+            return res.redirect('/login')
+        },
         postLogin(req,res,next) {
             passport.authenticate('local',(err,user,info) => {
-                console.log(err)
+                console.log("Error: "+err)
+                console.log("User: "+user)
+                console.log("Info: "+info)
                 if(err) {
                     req.flash("error1",info.message)
                     return next(err)
@@ -65,7 +75,7 @@ function authController() {
                 password: hashedPassword
             })
 
-            console.log(name, email)
+            console.log(name, email, password)
 
             user.save().then((user) => {
                 return res.redirect("/")
