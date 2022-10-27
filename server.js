@@ -44,6 +44,11 @@ passportInit(passport)
 app.use(passport.initialize())
 app.use(passport.session())
 
+app.use((req,res,next) => {
+    res.locals.session = req.session
+    res.locals.user = req.user
+    next()
+})
 
 app.use(flash())
 app.use(toastr())
@@ -53,11 +58,7 @@ app.use(express.json())
 app.use(express.urlencoded({extend:false}))
 
 //global middleware
-app.use((req,res,next) => {
-    res.locals.session = req.session
-    res.locals.user = req.user
-    next()
-})
+
 
 require("./routes/web")(app)
 

@@ -2165,9 +2165,7 @@ function updateCart(food) {
   axios__WEBPACK_IMPORTED_MODULE_0___default().post('/update-cart', food).then(function (res) {
     toastr.success('Items are added succesfully to cart..!!');
     cartCounter.innerText = res.data.totalQty;
-  })["catch"](function (err) {
-    toastr.success('Items are added succesfully to cart..!!');
-  });
+  })["catch"](function (err) {});
 }
 
 addToCart.forEach(function (btn) {
@@ -2175,44 +2173,7 @@ addToCart.forEach(function (btn) {
     var food = JSON.parse(btn.dataset.food);
     updateCart(food);
   });
-}); // function formerror() {
-//     var formError = document.querySelectorAll('.formerror')
-//     for(let items of formError) {
-//         formError.innerHTML = ""
-//     }
-// }
-// function setError(id,error) {
-//     let element = document.getElementById(id)
-//     element.getElementsByClassName('formerror')[0].innerHTML = error
-// }
-// document.getElementById('form').addEventListener('submit',(e) => {
-//     formerror();
-//     var name = document.getElementById('exampleInputText1').value
-//     if(name.length == 0) {
-//         setError("name","**Please Enter the name");
-//         setTimeout(() => {
-//             let element = document.getElementById("name")
-//             element.getElementsByClassName('formerror')[0].innerHTML = ""
-//         },3000)
-//     }
-//     var email = document.getElementById('exampleInputEmail1').value
-//     if(email.length == 0) {
-//         setError("email","**Please Enter the email")
-//         setTimeout(() => {
-//             let element = document.getElementById("email")
-//             element.getElementsByClassName('formerror')[0].innerHTML = ""
-//         },3000)
-//     }
-//     var password = document.getElementById('exampleInputPassword1').value
-//     if(password.length == 0) {
-//         setError("password","**Please Enter the password")
-//         setTimeout(() => {
-//             let element = document.getElementById("password")
-//             element.getElementsByClassName('formerror')[0].innerHTML = ""
-//         },3000)
-//     }
-//     e.preventDefault()
-// })
+});
 
 /***/ }),
 

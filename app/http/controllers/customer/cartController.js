@@ -18,9 +18,8 @@ function cartController() {
                     totalPrice : 0
                 }
             }
-            console.log(req.body)
             let cart = req.session.cart;
-            console.log(cart)
+            
             if(!cart.items[req.body._id]) {
                 cart.items[req.body._id] = {
                     item: req.body,

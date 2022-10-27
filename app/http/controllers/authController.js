@@ -17,6 +17,12 @@ function authController() {
             return res.redirect('/login')
         },
         postLogin(req,res,next) {
+            const {email, password } = req.body
+
+            if (!email || !password) {
+                req.flash("error1", "All fields are empty")
+                return res.redirect("/login")
+            }
             passport.authenticate('local',(err,user,info) => {
                 console.log("Error: "+err)
                 console.log("User: "+user)
