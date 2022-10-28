@@ -1,9 +1,10 @@
 const homeController = require("../app/http/controllers/homeController")
 const authController = require("../app/http/controllers/authController")
 const cartController = require("../app/http/controllers/customer/cartController")
+const adminOrderController = require("../app/http/controllers/admin/orderController")
 const guest = require("../app/http/middleware/guest")
+const auth = require("../app/http/middleware/auth")
 const orderController = require("../app/http/controllers/customer/orderController")
-
 
 function nonLayoutRoutes(app) {
     app.get("/", homeController().index)
@@ -21,8 +22,11 @@ function nonLayoutRoutes(app) {
     app.post("/update-cart", cartController().update)
 
     //customer route
-    app.post('/orders', orderController().store)
-    app.get('/customer/orders', orderController().index)
+    app.post('/orders', auth, orderController().store)
+    app.get('/customer/orders', auth, orderController().index)
+
+    //Admin routes
+    app.get('/admin/orders', auth, adminOrderController().index)
 
 }
 

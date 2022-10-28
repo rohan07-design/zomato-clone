@@ -13,10 +13,29 @@
 </head>
 
 <body>
+    <section id="header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <img src="/img/zomatoLogo.avif" alt="logo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex">
+                        <input class="form-control me-2" id="searched" type="search"
+                            placeholder="&#xf002; Search for restaurant,cuisine or a dish" aria-label="Search">
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </section>
     <section class="orders">
         <div id="headings">
             <h1 class="mb-3">All orders</h1>
-            <div class="alert alert-success d-flex align-items-center" role=" alert">
+            <% if(messages.success) { %>
+            <div class="alert alert-success d-flex align-items-center" role=" alert" id="alert">
                 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                     <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
@@ -25,8 +44,9 @@
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
                     <use xlink:href="#check-circle-fill" />
                 </svg>
-                <div>Order placed successfully</div>
+                <div><%= messages.success %></div>
             </div>
+            <% } %>
             <table class="table">
                 <thead>
                     <tr>
@@ -41,7 +61,7 @@
                         <% orders.forEach((order)=> { %>
                             <tr>
                                 <td scope="row">
-                                    <a href="/"><%= order._id %></a>
+                                    <a href="/" style="text-decoration:none;color:rgb(239, 79, 95);"><%= order._id %></a>
                                 </td>
                                 <td>
                                     <%= order.phone %>
@@ -61,6 +81,7 @@
                     <% } %>
                 </tbody>
             </table>
+            <a href="/"><button class="btn btn-success">Back</button></a>
         </div>
     </section>
     <!--public folder js-->
