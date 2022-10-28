@@ -402,6 +402,11 @@ p {
     font-size: 18px;
 }
 
+/* customer/order.ejs */
+#headings {
+    margin: 5% 10%;
+}
+
 
 @media (max-width: 650px) {
     #main {

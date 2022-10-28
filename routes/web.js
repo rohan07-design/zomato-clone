@@ -20,7 +20,9 @@ function nonLayoutRoutes(app) {
 
     app.post("/update-cart", cartController().update)
 
+    //customer route
     app.post('/orders', orderController().store)
+    app.get('/customer/orders', orderController().index)
 
 }
 
