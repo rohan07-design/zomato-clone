@@ -23,7 +23,7 @@ export function initAdmin() {
         let parsedItems = Object.values(items)
         return parsedItems.map((menuItem) => {
             return `
-                <p>${ menuItem.item.name} - ${ menuItem.qty} pcs </p>
+                <p>${ menuItem.item.foodname} - ${ menuItem.qty} pcs </p>
             `
         }).join('')
     }
@@ -38,10 +38,11 @@ export function initAdmin() {
                     </td>
                     <td>${ order.customerId.name }</td>
                     <td>${ order.address }</td>
+                    <td>
                     <div>
                         <form action="/admin/order/status" method="POST">
                             <input type="hidden" name="orderId" value="${order._id}">
-                            <select class="form-select" aria-label="Default select example" onchange="this.form.submit()">
+                            <select class="form-select" style="width:auto;" onchange="this.form.submit()">
                                 <option value="order_placed"
                                 ${ order.status === 'order_placed' ? 'selected' :''}>
                                 Placed</option>
@@ -60,6 +61,7 @@ export function initAdmin() {
                             </select>
                         </form>
                     </div>
+                    </td>
                     <td> ${ moment(order.createdAt).format('hh:mm A')}</td>
                 </tr>
             `
