@@ -61,7 +61,7 @@
                         <% orders.forEach((order)=> { %>
                             <tr>
                                 <td scope="row">
-                                    <a href="/" style="text-decoration:none;color:rgb(239, 79, 95);"><%= order._id %></a>
+                                    <a href="/customer/orders/<%=order._id%>" style="text-decoration:none;color:rgb(239, 79, 95);"><%= order._id %></a>
                                 </td>
                                 <td>
                                     <%= order.phone %>

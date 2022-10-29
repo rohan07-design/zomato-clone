@@ -412,6 +412,13 @@ p {
     margin: 5% 10%;
 }
 
+/* tracking page */
+
+#status {
+    background-color: #fafafa;
+    height: 100vh;
+}
+
 
 @media (max-width: 650px) {
     #main {
