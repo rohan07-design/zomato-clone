@@ -37,16 +37,18 @@
             <div class="d-flex justify-content-between align-items-center" >
                 <h3>Track delievery Status</h3>
                 <h6 style="color:rgb(239, 79, 95);"><%=order._id%></h6>
+                <input id="hidden-input" type="hidden" value="<%= JSON.stringify(order)%>">
             </div>
             <ul>
-                <li><span>Order Placed</span></li>
-                <li><span>Order Confirmation</span></li>
-                <li><span>Preparation</span></li>
-                <li><span>Out for delievery</span></li>
-                <li><span>Complete</span></li>
+                <li class="list" data-status="order_placed"><span>Order Placed</span></li>
+                <li class="list" data-status="confirmed"><span>Order Confirmation</span></li>
+                <li class="list" data-status="prepared"><span>Preparation</span></li>
+                <li class="list" data-status="delivered"><span>Out for delievery</span></li>
+                <li class="list" data-status="completed"><span>Complete</span></li>
             </ul>
         </div>
     </section>
+<script src="/socket.io/socket.io.js"></script>
 <!--public folder js-->
 <script src="/js/app.js"></script>
 <!--Bootstrap js-->

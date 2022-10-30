@@ -2206,7 +2206,10 @@ function initAdmin() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
+
 
 
 var addToCart = document.querySelectorAll("#addToCart");
@@ -2234,7 +2237,41 @@ if (alrtmsg) {
   }, 2000);
 }
 
-(0,_admin__WEBPACK_IMPORTED_MODULE_1__.initAdmin)();
+(0,_admin__WEBPACK_IMPORTED_MODULE_2__.initAdmin)(); //Chnage order status
+
+var statuses = document.querySelectorAll(".list");
+var order = document.querySelector('#hidden-input') ? document.querySelector('#hidden-input').value : null;
+var getorder = JSON.parse(order);
+var time = document.createElement('small');
+
+function updateStatus(order) {
+  var statusComplete = true;
+  statuses.forEach(function (status) {
+    var dataProperty = status.dataset.status;
+
+    if (statusComplete) {
+      status.classList.add('status-complete');
+    }
+
+    if (dataProperty === getorder.status) {
+      statusComplete = false;
+      time.innerText = moment__WEBPACK_IMPORTED_MODULE_1___default()(getorder.updatedAt).format('hh:mm A');
+      status.appendChild(time);
+
+      if (status.nextElementSibling) {
+        status.nextElementSibling.classList.add('current-status');
+      }
+    }
+  });
+}
+
+updateStatus(getorder); //socket
+
+var socket = io(); //join
+
+if (order) {
+  socket.emit('join', "order_".concat(getorder._id));
+}
 
 /***/ }),
 

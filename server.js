@@ -81,6 +81,18 @@ app.get("/orderOnline",(req,res) => {
 
 
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Listening at ${PORT}`);
+})
+
+//socket
+
+const io = require('socket.io')(server)
+io.on('connection',(socket) => {
+    //join
+    console.log(socket.id)
+    socket.on('join',(roomName) => {
+        console.log(roomName)
+        socket.join(roomName)
+    })
 })

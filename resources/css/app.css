@@ -494,7 +494,41 @@ p {
     box-shadow: 0 32px 1px 20px #fafafa;
 }   
 
+#status ul li small {
+    float: right;
+    margin-right: 30px;
+    font-size: 15px;
+    margin-top: 5px;
+    font-weight: 600;
+}
 
+/* lines gray */
+#status ul li.status-complete:before {
+    background: gainsboro;
+}
+
+/* dots */
+#status ul li.status-complete span:after {
+    background: gainsboro;
+}
+
+/* text and icon*/
+#status ul li.status-complete span {
+    color: gainsboro;
+}
+
+/* current status */
+
+/* current lines */
+/* current dots */
+#status ul li.current-status span:after {
+    background: rgb(239, 79, 95);
+}
+
+/* current text and icon */
+#status ul li.current-status span {
+    color: rgb(239, 79, 95);
+}
 
 @media (max-width: 650px) {
     #main {
