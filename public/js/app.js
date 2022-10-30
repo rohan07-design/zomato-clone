@@ -2160,7 +2160,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-
+ // import socket  from 'socket.io'
 
 var moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 
@@ -2192,6 +2192,13 @@ function initAdmin() {
       return "\n                <tr>\n                    <td>\n                        <p>".concat(order._id, "</p>\n                        <div>").concat(renderItems(order.items), "</div>\n                    </td>\n                    <td>").concat(order.customerId.name, "</td>\n                    <td>").concat(order.address, "</td>\n                    <td>\n                    <div>\n                        <form action=\"/admin/order/status\" method=\"POST\">\n                            <input type=\"hidden\" name=\"orderId\" value=\"").concat(order._id, "\">\n                            <select name=\"status\" class=\"form-select\" style=\"width:auto;\" onchange=\"this.form.submit()\">\n                                <option value=\"order_placed\"\n                                ").concat(order.status === 'order_placed' ? 'selected' : '', ">\n                                Placed</option>\n                                <option value=\"confirmed\"\n                                ").concat(order.status === 'confirmed' ? 'selected' : '', ">\n                                Confirmed</option>\n                                <option value=\"prepared\"\n                                ").concat(order.status === 'prepared' ? 'selected' : '', ">\n                                Prepared</option>\n                                <option value=\"delivered\"\n                                ").concat(order.status === 'delivered' ? 'selected' : '', ">\n                                Delivered</option>\n                                <option value=\"completed\"\n                                ").concat(order.status === 'completed' ? 'selected' : '', ">\n                                Completed</option>\n                            </select>\n                        </form>\n                    </div>\n                    </td>\n                    <td> ").concat(moment(order.createdAt).format('hh:mm A'), "</td>\n                </tr>\n            ");
     }).join('');
   }
+
+  var socket = io();
+  socket.on('orderPlaced', function (order) {
+    orders.unshift(order);
+    orderTableBody.innerHTML = "";
+    orderTableBody.innerHTML = generateMarkup(orders);
+  });
 } // module.exports = initAdmin
 
 /***/ }),
@@ -2209,6 +2216,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./admin */ "./resources/js/admin.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -2245,6 +2258,10 @@ var getorder = JSON.parse(order);
 var time = document.createElement('small');
 
 function updateStatus(order) {
+  statuses.forEach(function (status) {
+    status.classList.remove('status-complete');
+    status.classList.remove('current-status');
+  });
   var statusComplete = true;
   statuses.forEach(function (status) {
     var dataProperty = status.dataset.status;
@@ -2272,6 +2289,22 @@ var socket = io(); //join
 if (order) {
   socket.emit('join', "order_".concat(getorder._id));
 }
+
+var adminAreaPath = window.location.pathname;
+console.log(adminAreaPath);
+
+if (adminAreaPath.includes('admin')) {
+  socket.emit('join', 'adminRoom');
+}
+
+socket.on('orderUpdated', function () {
+  var updatedOrder = _objectSpread({}, order);
+
+  updatedOrder.updatedAt = moment__WEBPACK_IMPORTED_MODULE_1___default().format();
+  updatedOrder.status = data.status;
+  updateStatus(updatedOrder);
+  toastr.success('Order updated..!!');
+});
 
 /***/ }),
 

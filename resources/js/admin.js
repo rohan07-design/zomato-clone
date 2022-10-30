@@ -1,4 +1,5 @@
 import axios from 'axios'
+// import socket  from 'socket.io'
 const moment = require('moment')
 
 export function initAdmin() {
@@ -67,6 +68,13 @@ export function initAdmin() {
             `
         }).join('')
     }
+
+    let socket = io() 
+    socket.on('orderPlaced',(order) => {
+        orders.unshift(order)
+        orderTableBody.innerHTML = ""
+        orderTableBody.innerHTML = generateMarkup(orders)
+    })
 }   
 
 // module.exports = initAdmin

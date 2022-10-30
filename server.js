@@ -11,6 +11,7 @@ const passport = require('passport')
 
 const MongoDbStore = require('connect-mongo')(session);
 const toastr = require('express-toastr');
+const Emitter = require('events')
 
 //connection to the database
 const url = "mongodb://localhost/zomato"
@@ -28,6 +29,10 @@ let sessionStored = new MongoDbStore({
     collection: 'sessions'
 })
 
+
+//event emitter
+const eventEmitter = new Emitter()
+app.set('event',eventEmitter)
 
 //session config
 app.use(session({
@@ -55,7 +60,7 @@ app.use(toastr())
 //load assest
 app.use(express.static('public'));
 app.use(express.json())
-app.use(express.urlencoded({extend:false}))
+app.use(express.urlencoded({extended:false}))
 
 //global middleware
 
@@ -85,14 +90,20 @@ const server = app.listen(PORT, () => {
     console.log(`Listening at ${PORT}`);
 })
 
-//socket
+// //socket
 
 const io = require('socket.io')(server)
 io.on('connection',(socket) => {
     //join
-    console.log(socket.id)
     socket.on('join',(roomName) => {
-        console.log(roomName)
         socket.join(roomName)
     })
+})
+
+eventEmitter.on('orderUpdated',(data) => {
+    io.to(`order_${data.id}`).emit('orderUpdated',data) 
+})
+
+eventEmitter.on('orderPlaced',(data) => {
+    io.to('adminRoom').emit('orderPlaced',data)
 })

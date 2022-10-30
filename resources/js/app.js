@@ -12,7 +12,7 @@ function updateCart(food) {
         cartCounter.innerText = res.data.totalQty
     }).catch(err => {
     })
-}
+}   
 
 
 addToCart.forEach((btn) => {
@@ -43,6 +43,10 @@ const getorder = JSON.parse(order)
 const time = document.createElement('small')
 
 function updateStatus(order) {
+    statuses.forEach((status) => {
+        status.classList.remove('status-complete')
+        status.classList.remove('current-status')
+    })
     let statusComplete = true;
     statuses.forEach((status) => {
         let dataProperty = status.dataset.status
@@ -71,3 +75,18 @@ let socket = io()
 if(order) {
     socket.emit('join',`order_${getorder._id}`)
 }
+
+let adminAreaPath = window.location.pathname
+console.log(adminAreaPath)
+if(adminAreaPath.includes('admin')) {
+    socket.emit('join','adminRoom')
+} 
+
+socket.on('orderUpdated',() => {
+    const updatedOrder = {...order}
+    updatedOrder.updatedAt = moment.format()
+    updatedOrder.status = data.status
+    updateStatus(updatedOrder)
+    toastr.success('Order updated..!!')
+    
+})
