@@ -68,6 +68,8 @@ function updateStatus(order) {
 
 updateStatus(getorder)
 
+//Ajax call
+
 
 //socket
 let socket = io()

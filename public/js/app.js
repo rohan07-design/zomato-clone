@@ -2285,7 +2285,8 @@ function updateStatus(order) {
   });
 }
 
-updateStatus(getorder); //socket
+updateStatus(getorder); //Ajax call
+//socket
 
 var socket = io(); //join
 
