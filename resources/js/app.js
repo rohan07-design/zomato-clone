@@ -12,7 +12,7 @@ function updateCart(food) {
         cartCounter.innerText = res.data.totalQty
     }).catch(err => {
     })
-}   
+}
 
 
 addToCart.forEach((btn) => {
@@ -69,26 +69,45 @@ function updateStatus(order) {
 updateStatus(getorder)
 
 //Ajax call
+const paymentForm = document.querySelector('#paymentOnline')
+if (paymentForm) {
+    paymentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let formData = new FormData(paymentForm)
+        let formObject = {}
+
+        for (let [key, value] of formData.entries()) {
+            formObject[key] = value;
+        }
+
+        axios.post('/orders', formObject).then((res) => {
+            //notification for order successful
+            // setTimeout(() => {
+            // window.location.href = '/customer/orders'
+            // },2000)
+        })
+    })
+}
 
 
 //socket
 let socket = io()
 //join
-if(order) {
-    socket.emit('join',`order_${getorder._id}`)
+if (order) {
+    socket.emit('join', `order_${getorder._id}`)
 }
 
 let adminAreaPath = window.location.pathname
 console.log(adminAreaPath)
-if(adminAreaPath.includes('admin')) {
-    socket.emit('join','adminRoom')
-} 
+if (adminAreaPath.includes('admin')) {
+    socket.emit('join', 'adminRoom')
+}
 
-socket.on('orderUpdated',() => {
-    const updatedOrder = {...order}
+socket.on('orderUpdated', () => {
+    const updatedOrder = { ...order }
     updatedOrder.updatedAt = moment.format()
     updatedOrder.status = data.status
     updateStatus(updatedOrder)
     toastr.success('Order updated..!!')
-    
+
 })

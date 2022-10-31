@@ -5,6 +5,8 @@ function orderController() {
     return {
         store(req,res) {
             //validate request
+            // console.log(req.body)
+            // return
             const { phone, address} = req.body
             if(!phone || !address) {
                 req.flash('error', 'All fields are required')
@@ -26,6 +28,7 @@ function orderController() {
                 //emit
                 const eventEmitter = req.app.get('event')
                 eventEmitter.emit('OrderPlaced',result)
+                // return res.json({success: 'Order Placed Successfully..!!'})
                 res.redirect('/customer/orders')
             }).catch(err => {
                 console.log(err)
