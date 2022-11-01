@@ -1,6 +1,7 @@
 import axios from 'axios'
 import moment from 'moment'
 import { initAdmin } from './admin'
+import { initStripe } from './stripe'
 
 let addToCart = document.querySelectorAll("#addToCart")
 let cartCounter = document.querySelector('#cartUpdateNumber')
@@ -68,27 +69,7 @@ function updateStatus(order) {
 
 updateStatus(getorder)
 
-//Ajax call
-const paymentForm = document.querySelector('#paymentOnline')
-if (paymentForm) {
-    paymentForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        let formData = new FormData(paymentForm)
-        let formObject = {}
-
-        for (let [key, value] of formData.entries()) {
-            formObject[key] = value;
-        }
-
-        axios.post('/orders', formObject).then((res) => {
-            //notification for order successful
-            // setTimeout(() => {
-            // window.location.href = '/customer/orders'
-            // },2000)
-        })
-    })
-}
-
+initStripe()
 
 //socket
 let socket = io()

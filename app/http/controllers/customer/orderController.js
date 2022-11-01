@@ -28,8 +28,8 @@ function orderController() {
                 //emit
                 const eventEmitter = req.app.get('event')
                 eventEmitter.emit('OrderPlaced',result)
-                // return res.json({success: 'Order Placed Successfully..!!'})
-                res.redirect('/customer/orders')
+                return res.json({success: 'Order Placed Successfully..!!'})
+                // res.redirect('/customer/orders')
             }).catch(err => {
                 console.log(err)
                 req.flash('error','Something went wrong..!!')

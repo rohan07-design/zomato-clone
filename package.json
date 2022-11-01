@@ -20,6 +20,7 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^1.42.1",
     "alert": "^5.1.1",
     "axios": "^0.24.0",
     "bcrypt": "^5.1.0",
