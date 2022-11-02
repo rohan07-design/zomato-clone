@@ -104,8 +104,8 @@
                     <% if(user) {%>
                         <div class="d-flex justify-content-end mt-3">
                             <form action="/orders" method="POST" id="paymentOnline">
-                                <select id="payment" class="form-select mb-3" name="paymentType">
-                                    <option selected value="cash">Cash on Delivery</option>
+                                <select id="payment" name="paymentType" class="form-select mb-3" >
+                                    <option value="cash">Cash on Delivery</option>
                                     <option value="card">Pay with Card</option>
                                 </select>
                                 <div class="col-auto">

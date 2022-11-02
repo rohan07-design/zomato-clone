@@ -2511,7 +2511,7 @@ function _initStripe() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return (0,_stripe_stripe_js__WEBPACK_IMPORTED_MODULE_1__.loadStripe)('pk_live_51LE33ASIT3dowHOXO0fZrIisVJUnbKorfbASayzoGMH28L3u7zZN6M0ggNlf3n5xrpLTDUAYiYjdxxzzzCMOw38r00rN11rWbj');
+            return (0,_stripe_stripe_js__WEBPACK_IMPORTED_MODULE_1__.loadStripe)('pk_test_51LzLj7SHX2wq5qgXSxeizBgovr6odo80BGE7zf5Sn3dsD2TnFKQR6QrI9uzBhiZhzxeIvQgkFiBF3h92MfTDcFXV00iKlKbmfA');
 
           case 2:
             stripe = _context.sent;
@@ -2542,6 +2542,7 @@ function _initStripe() {
               paymentForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 var formData = new FormData(paymentForm);
+                console.log("Form data is: ", formData);
                 var formObject = {};
 
                 var _iterator = _createForOfIteratorHelper(formData.entries()),
@@ -2576,7 +2577,16 @@ function _initStripe() {
 
 
                 stripe.createToken(card).then(function (result) {
-                  console.log(result);
+                  formObject.stripeToken = result.token.id;
+                  axios__WEBPACK_IMPORTED_MODULE_0___default().post('/orders', formObject).then(function (res) {
+                    // notification for order successful
+                    new (noty__WEBPACK_IMPORTED_MODULE_2___default())({
+                      text: res.data.message
+                    }).show();
+                    window.location.href = '/customer/orders';
+                  })["catch"](function (err) {
+                    console.log(err);
+                  });
                 })["catch"](function (err) {
                   console.log(err);
                 });

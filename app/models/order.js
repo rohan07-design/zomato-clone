@@ -15,8 +15,12 @@ const orderSchema = new Schema ({
     address : {
         type: String
     },
-    payment : {
+    Payment : {
         type: String
+    },
+    paymentStatus : {
+        type: Boolean,
+        default: false
     },
     status : {
         type: String,

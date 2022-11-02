@@ -3,7 +3,8 @@ import { loadStripe } from "@stripe/stripe-js";
 import Noty from 'noty'
 
 export async function initStripe() {
-    const stripe = await loadStripe('pk_live_51LE33ASIT3dowHOXO0fZrIisVJUnbKorfbASayzoGMH28L3u7zZN6M0ggNlf3n5xrpLTDUAYiYjdxxzzzCMOw38r00rN11rWbj')
+    const stripe = await loadStripe
+    ('pk_test_51LzLj7SHX2wq5qgXSxeizBgovr6odo80BGE7zf5Sn3dsD2TnFKQR6QrI9uzBhiZhzxeIvQgkFiBF3h92MfTDcFXV00iKlKbmfA')
     const payment = document.querySelector('#payment')
     const showPayment = document.querySelector('#elementId')
     console.log(payment)
@@ -27,6 +28,7 @@ export async function initStripe() {
         paymentForm.addEventListener('submit', (e) => {
             e.preventDefault();
             let formData = new FormData(paymentForm)
+            console.log("Form data is: ",formData)
             let formObject = {}
 
             for (let [key, value] of formData.entries()) {
@@ -49,7 +51,16 @@ export async function initStripe() {
 
             //verify the card
             stripe.createToken(card).then((result) => {
-                console.log(result)
+                formObject.stripeToken = result.token.id;
+                axios.post('/orders', formObject).then((res) => {
+                    // notification for order successful
+                    new Noty ({
+                        text: res.data.message
+                    }).show()
+                    window.location.href = '/customer/orders'
+                }).catch((err) => {
+                    console.log(err)
+                })
             }).catch((err) => {
                 console.log(err)
             })

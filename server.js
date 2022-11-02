@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const session = require("express-session");
 const flash = require('express-flash')
 const passport = require('passport')
-
+const bodyParser = require('body-parser')
 const MongoDbStore = require('connect-mongo')(session);
 const toastr = require('express-toastr');
 const Emitter = require('events')
@@ -61,6 +61,8 @@ app.use(toastr())
 app.use(express.static('public'));
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //global middleware
 
