@@ -16,8 +16,9 @@ const orderSchema = new Schema ({
         type: String
     },
     Payment : {
-        type: String
-    },
+        type: String,
+        default:"cash"
+    },  
     paymentStatus : {
         type: Boolean,
         default: false

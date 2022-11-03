@@ -28,7 +28,6 @@ export async function initStripe() {
         paymentForm.addEventListener('submit', (e) => {
             e.preventDefault();
             let formData = new FormData(paymentForm)
-            console.log("Form data is: ",formData)
             let formObject = {}
 
             for (let [key, value] of formData.entries()) {
