@@ -14,8 +14,8 @@ const toastr = require('express-toastr');
 const Emitter = require('events')
 
 //connection to the database
-const url = "mongodb://localhost/zomato"
-mongoose.connect(url)
+const url = "mongodb://0.0.0.0:27017/zomato"
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log("Database Connected..!!")

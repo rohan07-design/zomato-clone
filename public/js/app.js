@@ -2440,8 +2440,7 @@ if (order) {
   socket.emit('join', "order_".concat(getorder._id));
 }
 
-var adminAreaPath = window.location.pathname;
-console.log(adminAreaPath);
+var adminAreaPath = window.location.pathname; // console.log(adminAreaPath)
 
 if (adminAreaPath.includes('admin')) {
   socket.emit('join', 'adminRoom');

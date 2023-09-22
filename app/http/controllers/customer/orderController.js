@@ -29,10 +29,12 @@ function orderController() {
             // console.log(phone, address, `Order id:${order.customerId}`, order.items)
 
             order.save().then(result => {
+
                 Order.populate(result, { path: 'customerId' }, (err, placedOrder) => {
                     // console.log("placedOrders: ",placedOrder)
                     // req.flash('success', 'Order Placed Successfully..!!')
                     //stripe payment
+                    debugger
                     if (PaymentType === 'card') {
                         // console.log("Enters in card section")
                         // console.log("Total price is: ",req.session.cart.totalPrice)
@@ -55,14 +57,14 @@ function orderController() {
                                 console.log("before payment")
                                 return res.json({ success: 'Payment sucessfull, Order Placed Successfully..!!' })
                             }).catch((err) => {
-                                console.log('Error in card section')
+                                // console.log('Error in card section')
                             })
                         }).catch((err) => {
                             delete req.session.cart
                             return res.json({ message: 'Payment Failed, order placed successfully..!! You can pay at delivery time'})
                         })
                     } 
-                    // res.redirect('/customer/orders')    
+                    res.redirect('/customer/orders')    
                 })
             }).catch(err => {
                 return res.json({ message: 'something went wrong'})
